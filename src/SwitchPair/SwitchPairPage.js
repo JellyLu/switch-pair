@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { indexOf, remove } from "lodash";
+import { chunk, indexOf, remove } from "lodash";
 import { NameList } from "./NameList";
+import { PairList } from "./PairList";
 
 export const SwitchPairPage = () => {
   const [names, setNames] = useState([]);
+  const [pairList, setPairList] = useState([]);
   const [newName, setNewName] = useState("");
 
   const addName = () => {
@@ -23,6 +25,11 @@ export const SwitchPairPage = () => {
     setNames(namesWithoutSelectedName);
   }
 
+  const switchPair = () => {
+    const pairs = chunk(names, 2);
+    setPairList(pairs);
+  }
+
   return <div>
     <header>Switch Pair</header>
     <NameList names={names} onDeleteName={deleteName} />
@@ -30,6 +37,7 @@ export const SwitchPairPage = () => {
       <input value={newName} onChange={(e) => { setNewName(e.target.value)}}/>
       <button onClick={addName}>Add Name</button>
     </div>
-    <button>Switch</button>
+    <button onClick={switchPair}>Switch</button>
+    <PairList pairs={pairList} />
   </div>
 };
