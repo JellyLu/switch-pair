@@ -1,0 +1,10 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 8vmin;
+  align-items: center;
+}
+
+.name {
+  flex: 6;
+}

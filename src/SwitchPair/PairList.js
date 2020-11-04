@@ -1,23 +1,22 @@
 import React from "react";
-import {
-  SmileOutlined,
-} from '@ant-design/icons';
+import "./PairList.css";
+import { SmileOutlined } from '@ant-design/icons';
+import { List } from "antd";
 
 export const PairList = ({ pairs }) => {
-  const listItems = pairs.map((pair, index) => {
-    const [first, second] = pair;
-    return (<div key={`pair-${index}`}>
-      <span>{first}</span>
-      {second
-        ? <>
-            <SmileOutlined/>
-            <span>{second}</span>
-          </>
-        : <SmileOutlined rotate={180}/>
-      }
-    </div>);
-  });
-  return (
-    <ul>{listItems}</ul>
-  );
+  return (<List
+    size="large"
+    dataSource={pairs}
+    renderItem={pair => {
+      const [first, second] = pair;
+      return (<List.Item className="row">
+        <span className="plainText pairName">{first}</span>
+        {second
+          ? <SmileOutlined style={{ fontSize: "24px", color: "red" }}/>
+          : <SmileOutlined rotate={180} style={{ fontSize: "24px", color: "#4DAE91" }}/>
+        }
+        <span className="plainText pairName">{second ? second : ""}</span>
+      </List.Item>);
+    }}
+  />);
 };

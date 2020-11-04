@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: auto 5%;
+}
+
+.header {
+  height: 14vmin;
+  background: #181E46;
+  text-align: center;
+  line-height: 14vmin;
+  margin: 0;
+  color: white;
+}
+
+.divider {
+  color: blueviolet;
+  margin: 2vmin 0;
+}
+
+.addNameRow {
+  margin: 2vmin 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.newNameInput {
+  height: 8vmin;
+  flex: 6;
+  border-radius: 20px;
+  border:1px solid #3C4D6D;
+  padding-left: 15px;
+}
+
+.addNewNameButton {
+  margin-left: 5vmin;
+  flex: 1;
+  min-width: 30vmin;
+  color: white;
+  background-color: #181E46;
+  border-radius: 20px;
+  border:1px solid #3C4D6D;
+}
+
+.switchPairButton {
+  height: 8vmin;
+  width: 40%;
+  color: white;
+  background-color: #181E46;
+  border-radius: 20px;
+  border:1px solid #3C4D6D;
+}

@@ -1,0 +1,13 @@
+.plainText {
+    font-size: calc(10px + 2vmin);
+}
+
+.ant-list-items {
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+:focus {
+    outline: none;
+    box-shadow: 0 0 3pt 3pt #C8E3C5;
+}
