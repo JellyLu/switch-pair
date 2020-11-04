@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { chunk, indexOf, remove } from "lodash";
+import _ from "lodash";
+import { indexOf, remove } from "lodash";
 import { Button, Divider, Input } from "antd";
 import "./SwitchPairPage.css";
 import { NameList } from "./NameList";
 import { PairList } from "./PairList";
 
 export const SwitchPairPage = () => {
-  const [names, setNames] = useState([]);
+  const [names, setNames] = useState(["Jess", "Alex", "Henry", "May", "Niko", "Charis"]);
   const [pairList, setPairList] = useState([]);
   const [newName, setNewName] = useState("");
 
@@ -28,7 +29,13 @@ export const SwitchPairPage = () => {
   }
 
   const switchPair = () => {
-    const pairs = chunk(names, 2);
+    const pairs = _.chain(names)
+      .map((a) => ({sort: Math.random(), value: a}))
+      .sort((a, b) => (a.sort - b.sort))
+      .map((a) => a.value)
+      .chunk(2)
+      .value();
+
     setPairList(pairs);
   }
 
